@@ -1,102 +1,188 @@
-/* Reset and base styles  */
+@import url('./sketchButton.css');
+@import url('./gameMenu.css');
+
+body {
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    margin: 0;
+    height: 100vh;
+}
+
 * {
     box-sizing: border-box;
-	padding: 0px;
-	margin: 0px;
-	border: none;
 }
 
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
+.game-content__inner {
+    display: flex;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
 }
 
-/* Links */
-
-a, a:link, a:visited  {
-    text-decoration: none;
+.title {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    text-shadow:
+        0 0 7px #fff,
+        0 0 10px #fff,
+        0 0 21px #fff,
+        0 0 42px #bc13fe,
+        0 0 82px #bc13fe,
+        0 0 92px #bc13fe,
+        0 0 102px #bc13fe,
+        0 0 151px #bc13fe;
 }
 
-a:hover  {
-    text-decoration: none;
+.canvas-bg {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-right: 15px;
+    width: 320px;
 }
 
-/* Common */
-
-aside, nav, footer, header, section, main {
-	display: block;
+canvas {
+    width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    font-size: inherit;
-	font-weight: inherit;
+canvas,
+.game-content__next,
+.game-content__score {
+    animation: pulsate 1.5s infinite alternate;
+    border: 1px solid #fff;
+    box-shadow: 0 0 .2rem #fff,
+        0 0 .2rem #fff,
+        0 0 2rem #bc13fe,
+        0 0 0.8rem #bc13fe,
+        0 0 2.8rem #bc13fe,
+        inset 0 0 1.3rem #bc13fe;
 }
 
-ul, ul li {
-	list-style: none;
+.game-content__next {
+    position: relative;
+    width: 150px;
+    height: 180px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
 }
 
-img {
-	vertical-align: top;
+.next__title {
+    position: absolute;
+    top: 10px;
+    left: 55px;
+    display: block;
+    width: 100%;
+    color: #fff;
 }
 
-img, svg {
-	max-width: 100%;
-	height: auto;
+.next__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 
-address {
-  font-style: normal;
+.game-content__score {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin-bottom: 15px;
+    height: 100px;
+    text-align: center;
+    padding-top: 10px;
+    color: #fff;
 }
 
-/* Form */
-input, textarea, button, select {
-	font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background-color: transparent;
+.game-content__score span {
+    display: block;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+.score__title {
+    margin-bottom: 10px;
 }
 
-input[type='number'] {
-  --moz-appearance: textfield;
+.score__total {
+    font-size: 22px;
 }
 
-input::-ms-clear {
-	display: none;
+.game-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-button, input[type="submit"] {
-    display: inline-block;
-    box-shadow: none;
-    background-color: transparent;
-    background: none;
-    cursor: pointer;
+.game-buttons button {
+    border: 1px solid gray;
 }
 
-input:focus, input:active,
-button:focus, button:active, 
-textarea:active, textarea:focus,
-select:focus {
-    outline: none;
+
+.game-controls {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-button::-moz-focus-inner {
-	padding: 0;
-	border: 0;
+.game-controls button {
+    border: 1px solid gray;
 }
 
-label {
-	cursor: pointer;
+.bottom {
+    transform: rotate(180deg);
+    margin-bottom: 0;
 }
 
-legend {
-	display: block;
+.left {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 35px;
+    left: 0;
 }
-/* End Reset and base styles */
+
+.right {
+    transform: rotate(90deg);
+    position: absolute;
+    top: 35px;
+    right: 0;
+}
+@keyframes pulsate {
+
+    100% {
+
+        text-shadow:
+            0 0 4px #fff,
+            0 0 11px #fff,
+            0 0 19px #fff,
+            0 0 40px #bc13fe,
+            0 0 80px #bc13fe,
+            0 0 90px #bc13fe,
+            0 0 100px #bc13fe,
+            0 0 150px #bc13fe;
+
+    }
+
+    0% {
+
+        text-shadow:
+            0 0 2px #fff,
+            0 0 4px #fff,
+            0 0 6px #fff,
+            0 0 10px #bc13fe,
+            0 0 45px #bc13fe,
+            0 0 55px #bc13fe,
+            0 0 70px #bc13fe,
+            0 0 80px #bc13fe;
+
+    }
+}
